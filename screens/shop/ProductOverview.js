@@ -9,11 +9,17 @@
      return (
      <FlatList 
      data={products}
-     renderItem={itemData => <ProductItem 
+     renderItem={itemData => 
+     <ProductItem 
      image={itemData.item.imageUrl} 
      title={itemData.item.title}
      price={itemData.item.price}
-     viewDetail={() => {}}
+     viewDetails={() => {
+         props.navigation.navigate('ProductDetails', { 
+             productId: itemData.item.id,
+             productTitle: itemData.item.title
+            });
+     }}
      addToCart={() => {}}
      />} 
  /> 
